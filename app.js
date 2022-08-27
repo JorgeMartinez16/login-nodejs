@@ -26,7 +26,7 @@ app.use(session({
     secret:'secret',
     resave: true,
     saveUninitialized: true
-    
+
 }))
 
 //8- invocar modulo de conexion
@@ -34,9 +34,15 @@ app.use(session({
 const connection = require('./database/db');
 /* console.log(__dirname) */
 
+//9-estableciendo rutas
 app.get('/', (req, res)=>{
-    res.send('hola mundo');
+    res.render('index');
 })
+
+app.get('/login', (req, res)=>{
+    res.render('login');
+})
+
 
 app.listen(3000, (req, res)=>{
     console.log('server running in http://localhost:3000');
